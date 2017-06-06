@@ -1,2 +1,2 @@
-# Learn GraphQL
-> This project create for learn GraphQL
+# Learn GraphQL Mongo
+> This project create for learn GraphQL with MongoDB

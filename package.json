@@ -1,0 +1,32 @@
+{
+  "name": "learn-garphql-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js --exec babel-node"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-module-resolver": "^2.7.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "nodemon": "^1.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://chutiphon-k@github.com/chutiphon-k/learn-garphql-mongo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chutiphon-k/learn-garphql-mongo/issues"
+  },
+  "homepage": "https://github.com/chutiphon-k/learn-garphql-mongo#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.6",
+    "graphql": "^0.10.1",
+    "mongoose": "^4.10.4"
+  }
+}

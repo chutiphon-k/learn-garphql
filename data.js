@@ -29,4 +29,7 @@ var products = [{
     }]
   }
 ]
-module.exports = products
+
+export {
+	products
+}

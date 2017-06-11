@@ -7,18 +7,23 @@ import {
 
 import { productType } from './inputtype'
 import { products } from '../../data'
+import * as productServices from './services'
 
 let getHey = {
 	type: GraphQLString,
 	resolve: (_, args) =>  {
-		return products[0].name
+		return 'Hello GraphQL'
 	}
 }
 
 let getProducts = {
 	type: new GraphQLList(productType),
 	resolve: (_, args) => {
-		return products
+		return new Promise((resolve, reject) => {
+			productServices.getProducts((data) => {
+				resolve(data)
+			})
+		})
 	}
 }
 
@@ -30,7 +35,12 @@ let getProductByPrice = {
 		}
 	},
 	resolve: (_, args) => {
-		return products.filter((product) => product.price <= args.price)
+		let priceParams = args.price
+		return new Promise((resolve, reject) => {
+			productServices.getProductByPrice(priceParams, (data) =>{
+				resolve(data)
+			})
+		})
 	}
 }
 

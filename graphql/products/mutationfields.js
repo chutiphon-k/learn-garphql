@@ -7,9 +7,10 @@ import {
 
 import { productType } from './inputtype'
 import { products } from '../../data'
+import * as productServices from './services'
 
 let addProduct = {
-	type: new GraphQLList(productType),
+	type: productType,
 	args: {
 		name: {
 			type: GraphQLString
@@ -22,13 +23,12 @@ let addProduct = {
 		}
 	},
 	resolve: (_, args) => {
-		let product = {
-			name: args.name,
-			price: args.price,
-			category: args.category
-		}
-		products.push(product)
-		return products
+		return new Promise((resolve, reject) => {
+			productServices.createProduct(args, (data) => {
+				console.log('------', data)
+				resolve(data)
+			})
+		})
 	}
 }
 
@@ -40,7 +40,12 @@ let deleteProduct = {
 		}
 	},
 	resolve: (_, args) => {
-		return products.filter((product) => product.name != args.name)
+		return new Promise((resolve, reject) => {
+			productServices.deleteProduct(args.id, (data) => {
+				console.log(data)
+				resolve(data)
+			})
+		})
 	}
 }
 
